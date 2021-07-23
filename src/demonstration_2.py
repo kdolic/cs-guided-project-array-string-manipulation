@@ -24,7 +24,33 @@ Example 3:
 Input: [9,9,9]
 Output: [1,0,0,0]
 Explanation: The input array represents the integer 999. 999 + 1 = 1000.
+
+UPER: 
+input an array of nums
+output an array of all the numbs togheter plus 1
+    PLAN
+add numbs into a string
+make string into a number and add 1
+put it back into an array and return
 """
 def plus_one(digits):
-    # Your code here
+    newString = ""
+
+    for digit in digits:
+        newDigit = str(digit)
+        newString += newDigit
+    print(newString)
+
+    stringNum = int(newString)
+    stringNum = stringNum + 1
+    stringNum = str(stringNum)
+    newList = list(stringNum)
+
+    str_num = []
+
+    for string in newList:
+        string = int(string)
+        str_num.append(string)
+        
+    return str_num
 
