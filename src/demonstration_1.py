@@ -19,7 +19,36 @@ Input: nums = [1,2,3]
 Output: -1
 Explanation:
 There is no index that satisfies the conditions in the problem statement.
+
+UPER: 
+input array of nums
+output = iondex, num
+return -1 if no pivot_index
+return retunr the left most pivot
+    PLAN
+array search - for loop
+looking for value that meets the cryteria - check if pivot index
+sum all nums on left
+sum all nums on right of pivot
+if l == r
+return index 
+if not return -1
 """
 def pivot_index(nums):
-    # Your code here
+    current = 0;
+    leftSum = 0
+    rightSum = sum(nums) # O(n)
 
+    for i in range(len(nums)): # O(n)
+        # leftSum = sum(nums[0:i])   # All in the loop is O(n)
+        # rightSum = sum(nums[i +1:])
+        # remove current value from rightSum
+        rightSum -= nums[i]
+        if i != 0:
+            leftSum += nums[i-1]
+        if leftSum == rigtSum:
+            return i
+    return -1
+
+print(pivot_index(nums = [1,7,3,6,5,6]))
+print(pivot_index(nums = [1,2,3]))
